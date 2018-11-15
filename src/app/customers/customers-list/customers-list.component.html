@@ -1,0 +1,13 @@
+<button routerLink="/customer-add">Add Customer</button>
+<ul *ngIf="customers">
+  <li *ngFor="let customer of customers">
+
+    <a href="/customers/{{customer.id}}">
+    {{customer.firstName}} {{customer.lastName}}
+    </a>
+    <button routerLink="/customer-update/{{customer.id}}">Update</button>
+    <button (click)="delete(customer.id)">Delete</button>
+
+  </li>
+</ul>
+<h4 *ngIf="!customers">Loading...</h4>
