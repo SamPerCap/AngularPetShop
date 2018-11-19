@@ -10,9 +10,7 @@ export class CustomerService {
  apiURL = 'https://samu1667petshop-2018.azurewebsites.net/api/customers';
 
 
-  constructor(private http: HttpClient){
-
-  }
+  constructor(private http: HttpClient){ }
 
   getCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.apiURL);

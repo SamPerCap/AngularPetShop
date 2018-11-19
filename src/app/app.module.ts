@@ -8,9 +8,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
 import { CustomerAddComponent } from './customers/customer-add/customer-add.component';
 import { CustomerUpdateComponent } from './customers/customer-update/customer-update.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {AuthenticationService} from "angular-authentication-service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
+import {AuthenticationService} from "./shared/services/authentication.service";
+import {AuthGuard} from "./guards/auth.guard";
+import {TodoItemService} from "./shared/services/todo-item.service";
 
 @NgModule({
   declarations: [
@@ -20,16 +23,21 @@ import {HttpClientModule} from "@angular/common/http";
     WelcomeComponent,
     CustomerDetailsComponent,
     CustomerAddComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AuthenticationService,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthenticationService,
+    TodoItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

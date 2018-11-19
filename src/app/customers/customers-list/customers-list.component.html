@@ -2,7 +2,7 @@
 <ul *ngIf="customers">
   <li *ngFor="let customer of customers">
 
-    <a href="/customers/{{customer.id}}">
+    <a routerLink="/customers/{{customer.id}}">
     {{customer.firstName}} {{customer.lastName}}
     </a>
     <button routerLink="/customer-update/{{customer.id}}">Update</button>

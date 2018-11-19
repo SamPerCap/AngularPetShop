@@ -6,15 +6,17 @@ import {CommonModule} from "@angular/common";
 import {CustomerDetailsComponent} from "./customers/customer-details/customer-details.component";
 import {CustomerAddComponent} from "./customers/customer-add/customer-add.component";
 import {CustomerUpdateComponent} from "./customers/customer-update/customer-update.component";
-import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import { AuthGuard } from './guards/auth.guard';
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent},
+  {path: '', component: WelcomeComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent},
   {path: 'customers', component: CustomersListComponent},
   {path: 'customers/:id', component: CustomerDetailsComponent},
   {path: 'customers-update/:id', component: CustomerUpdateComponent},
-  {path: 'customers-add', component: CustomerAddComponent}
+  {path: 'customers-add', component: CustomerAddComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
@@ -24,7 +26,6 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule
-  ],
-  declarations: []
+  ]
 })
 export class AppRoutingModule { }

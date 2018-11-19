@@ -18,6 +18,7 @@ customer: Customer;
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.customerService.getCustomersByID(id).subscribe(customerFromRest => this.customer = customerFromRest);
+
   }
 
 }
