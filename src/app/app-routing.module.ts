@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth.guard';
 import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
+  {path: 'token', component: LoginComponent },
   {path: '', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'customers', component: CustomersListComponent},

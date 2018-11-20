@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl : 'https://localhost:4200'
+  apiURL : 'localhost:4200'
+  //apiUrl : 'https://samu1667petshop-2018.azurewebsites.net'
 };
 
 /*

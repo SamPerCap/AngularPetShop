@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from "../../shared/models/customer";
 import {CustomerService} from "../../shared/services/customer.service";
-import {ActivateRoutes} from "@angular/router/src/operators/activate_routes";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -17,8 +16,11 @@ customer: Customer;
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.customerService.getCustomersByID(id).subscribe(customerFromRest => this.customer = customerFromRest);
+    this.customerService.getCustomersByID(id).subscribe(customerFromRest => {
+      debugger;
 
+      this.customer = customerFromRest
+    });
   }
 
 }

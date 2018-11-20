@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {AuthenticationService} from "./authentication.service";
 import {environment} from "../../../environments/environment";
 import {TodoItem} from "../models/todoitem";
+import {Customer} from "../models/customer";
 
 const httpOptions = {
   headers: new HttpHeaders ({
@@ -19,13 +20,13 @@ export class TodoItemService {
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) {  }
 
-  getItems(): Observable<TodoItem[]>{
+  getItems(): Observable<Customer[]>{
     // add authorization header with jwt token
     httpOptions.headers =
       httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
 
     //get users from application
-    return this.http.get<TodoItem[]>(environment.apiUrl + 'api/Users', httpOptions);
+    return this.http.get<Customer[]>(environment.apiURL + 'api/customers', httpOptions);
   }
 
 }
