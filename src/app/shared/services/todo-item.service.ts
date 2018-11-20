@@ -26,7 +26,7 @@ export class TodoItemService {
       httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
 
     //get users from application
-    return this.http.get<Customer[]>(environment.apiURL + 'api/customers', httpOptions);
+    return this.http.get<Customer[]>(environment.apiUrl + 'api/customers', httpOptions);
   }
 
 }

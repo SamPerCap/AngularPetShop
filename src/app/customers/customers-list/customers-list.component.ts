@@ -23,7 +23,7 @@ export class CustomersListComponent implements OnInit {
   }
   delete(id: number){
   this.customerService.deleteCustomer(id).subscribe(message =>{
-    console.log('Delete user, got message: ' + message);
+    console.log('Delete owner, got message: ' + message);
   });
   //this.customers = this.customerService.getCustomers();
   }

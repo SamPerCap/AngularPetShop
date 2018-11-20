@@ -23,6 +23,7 @@ export class CustomerService {
   }
 
   updateCustomer(customer: Customer): Observable<Customer>{
+    debugger;
     return this.http.put<Customer>(this.apiURL + '/' + customer.id, customer);
   }
 
